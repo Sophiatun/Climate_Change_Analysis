@@ -4,13 +4,13 @@ import * as d3 from "d3";
 
 function LineChart() {
   const [plotData, setPlotData] = useState(null);
-  const [selected, setSelected] = useState("airPolution");
+  const [selected, setSelected] = useState("airPollution");
   const [dropdown, setDropdown] = useState(false);
   const plotRef = useRef(null);
 
   const charts = {
     
-    airPolution : {
+    airPollution : {
     location: "src/data/Global.csv",
     title:"Average Land Temperature",
     x: "Year",
@@ -92,7 +92,7 @@ function LineChart() {
   <div id="dropdown" className="z-10 fixed top-30 left-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
       <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
         <li>
-          <a href="#" onClick={() => setSelected("airPolution")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Air Polution</a>
+          <a href="#" onClick={() => setSelected("airPollution")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Air Polution</a>
         </li>
         <li>
           <a href="#" onClick={() => setSelected("cities")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cities</a>
