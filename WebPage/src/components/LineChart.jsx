@@ -19,7 +19,8 @@ function LineChart() {
       xLabel: "Year",
       yLabel: "Temperature (°C)",
       type: "line",
-      description: "How have global temperature trends evolved from 1850 to 2015?"
+      description: "How have global temperature trends evolved from 1850 to 2015?",
+      graph_png: ["public/Global Land & Ocean Avg Temp.png","public/Global Land Temperature.png"],
       },
 
     country_specific_trends: {
@@ -32,11 +33,11 @@ function LineChart() {
       yLabel: "Yearly Average Temperature (°C)",
       type: "line",
       description: "Are any particular continents experiencing more rapid temperature increases than others? How have temperature trends evolved throughout our date range in South Africa, India, Germany, United States, Brazil, and Australia?",
-      graph_png: "public/Temperature Trends in Selected Countries.png"
+      graph_png: ["public/Temperature Trends in Selected Countries.png"]
     },
 
-    hotspots_and_cooling: {
-      name: "Hotspots and Cooling",
+    States_Analysis: {
+      name: "States Analysis",
       location: "src/data/Cleaned Data/hotspots_and_cooling.csv",
       label: "Percent Change in Canada's Yearly Average Temperature",
       x: "Years",
@@ -45,7 +46,8 @@ function LineChart() {
       yLabel: "Change in Temperature (%)",
       type: "line",
       description: "Which countries/regions are experiencing the most rapid increase in temperature, and are there any regions experiencing a decrease?",
-      graph_png: "public/hotspots_and_cooling.png"
+      graph_png: ["Percent Change in Yearly Avg Temp.png"],
+      hide:true,
     },
 
     population_v_temp: {
@@ -58,6 +60,8 @@ function LineChart() {
       color: "Country",
       type: "scatter",
       description: "",
+      graph_png: ["public/Population vs Temperature Correlation.png"],
+      hide:true,
     },
 
     population_airPollution : {
@@ -68,6 +72,8 @@ function LineChart() {
       y: "Nitrogen Oxide",
       type: "scatter",
       description: "",
+      graph_png: ["USA Population vs Pollutant.png", "India Population vs Pollutant.png", "Austrlia Population vs Pollutants.png"],
+      hide:true,
     },
 
     airPollution : {
@@ -78,6 +84,8 @@ function LineChart() {
       y: "Yearly Average Temperature",
       type: "line",
       description: "",
+      graph_png: ["public/Australia Air Pollutants.png", "public/Brazil Air Pollutants", "public/India Air Pollutants", "public/South America Air Pollutantspng.png","United States Air Pollutants.png"],
+      hide:true,
     }
   }
 
@@ -133,15 +141,17 @@ function LineChart() {
   }
 
   const displayImage = (image) => {
-    return (
-      <div>
-        {image && (
-          <div>
-            <img src={image} alt="Chart" />
-          </div>
-        )}
-      </div>
-    );
+    return image.map((image, index) => {
+      return (
+        <div key={index}>
+          {image && (
+            <div>
+              <img src={image} alt="Chart" />
+            </div>
+          )}
+        </div>
+      );
+    });
   };
 
   useEffect(() => {
@@ -151,7 +161,7 @@ function LineChart() {
   }, [plotData]); // Dependency on plotData to re-render plot when data changes
 
   return (
-  <div className="fixed left-0 top-0 h-full w-full p-10 pt-24 overflow-y-auto">
+    <div className="p-10 overflow-y-auto">
   <button id="dropdownDefaultButton" onClick={() => setDropdown(!dropdown)} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Select Graph <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
     </svg>
@@ -174,9 +184,9 @@ function LineChart() {
         </li>
         <li>
           <a href="#" onClick={() => {
-            setSelected("hotspots_and_cooling");
+            setSelected("States_Analysis");
             setDropdown(!dropdown);
-          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hotspots and Cooling</a>
+          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">States Analysis</a>
         </li>
         <li>
           <a href="#" onClick={() => {
@@ -200,8 +210,8 @@ function LineChart() {
   </div>
   }
   <div>{charts[selected].name}</div>
-  {displayImage(charts[selected]?.graph_png)}
-  <div className="relative w-full h-1/2" ref={plotRef}></div>
+  {!charts[selected]?.hide&&<div className="relative w-full h-1/2" ref={plotRef}></div>}
+  {charts[selected]?.graph_png&&displayImage(charts[selected].graph_png)}
   <div>{charts[selected].description}</div>
 </div>)
 }
