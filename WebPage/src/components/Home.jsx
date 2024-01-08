@@ -66,13 +66,9 @@ function Home() {
             </p>
             <h2 className="font-bold text-2xl">Data References</h2>
             <p>
-              <li>Temperature Dataset: Climate Change: Earth Surface Temperature Data</li>
-              <li>Air Pollution Dataset: Emmision of Air Pollutants</li>
-              <li>Global Population Dataset: World Population by Countries Dataset (1960-2021)</li>
-            </p>
-            <h2 className="font-bold text-2xl">Code References</h2>
-            <p>
-              <li></li>
+              <li>Temperature Dataset: Climate Change: Earth Surface Temperature Data / Kaggle</li>
+              <li>AAir Pollution Dataset: Emmision of Air Pollutants / Kaggle</li>
+              <li>Global Population Dataset: Population / World Bank Data</li>
             </p>
           </div>
       </div>
