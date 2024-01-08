@@ -12,6 +12,7 @@ function LineChart() {
   const charts = {
     
     airPollution : {
+      name: "Air Pollution",
       location: "src/data/Cleaned Data/South_Africa_Air_Pollution.csv",
       label:"South Africa Air Pollutants (Nitrogen Oxide)",
       x: "Year",
@@ -21,6 +22,7 @@ function LineChart() {
     },
 
     cities : {
+      name: "Cities",
       location: "src/data/Cities.csv",
       label: "",
       x: "Year",
@@ -30,16 +32,18 @@ function LineChart() {
     },
 
     countries: {
+      name: "Country-Specific Trends",
       location: "src/data/Countries.csv",
       label: "",
       x: "Year",
       y: [],
       type: "",
-      description: "test three",
+      description: "Are any particular continents experiencing more rapid temperature increases than others? How have temperature trends evolved throughout our date range in South Africa, India, Germany, United States, Brazil, and Australia?",
       graph_png: "public/temp_trends_by_country.png"
     },
 
     global: {
+      name: "Global",
       location: "src/data/Global.csv",
       label: "Average Global Land Temperature (1850-2015)",
       x: "Year",
@@ -51,6 +55,7 @@ function LineChart() {
       },
 
     population_v_temp: {
+      name: "Population v Temperature",
       location: "src/data/Merged_Population.csv",
       label: "Correlation between Population and Temperature (1973-2013)",
       x: "Population",
@@ -95,6 +100,9 @@ function LineChart() {
     var traces = [{ x, y }];
   
     var layout = {
+      title: {
+        text: charts[selected].label,
+      },
       xaxis: {
         title: {
           text: charts[selected].xLabel || charts[selected].x,
@@ -132,7 +140,7 @@ function LineChart() {
   </svg>
   </button>
   <br></br><br></br>
-  <div>{charts[selected].label}</div>
+  <div>{charts[selected].name}</div>
   {dropdown && 
   <div id="dropdown" className="z-10 fixed top-30 left-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
       <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
