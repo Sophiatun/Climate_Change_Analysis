@@ -5,7 +5,7 @@ import * as d3 from "d3";
 function LineChart() {
   const [view, setView] = useState("linegraphs");
   const [plotData, setPlotData] = useState(null);
-  const [selected, setSelected] = useState("airPollution");
+  const [selected, setSelected] = useState("global");
   const [dropdown, setDropdown] = useState(false);
   const plotRef = useRef(null);
 
@@ -36,6 +36,7 @@ function LineChart() {
       y: [],
       type: "",
       description: "test three",
+      graph_png: "public/temp_trends_by_country.png"
     },
 
     global: {
@@ -43,9 +44,10 @@ function LineChart() {
       label: "Average Global Land Temperature (1850-2015)",
       x: "Year",
       y: "LandAverageTemperature",
-      type: "",
-      description: "How have global temperature trends evolved from 1850 to 2015?",
-      graph_png: "/temp_trends_by_country.png"
+      xLabel: "Year",
+      yLabel: "Temperature (°C)",
+      type: "line",
+      description: "How have global temperature trends evolved from 1850 to 2015?"
       },
 
     population_v_temp: {
@@ -70,34 +72,52 @@ function LineChart() {
         return null;
       }
     }
-
+  
     function processData(allRows) {
       var x = [], y = [];
-
+  
       allRows.forEach(row => {
         x.push(row[charts[selected].x]);
         y.push(row[charts[selected].y]);
       });
-
+  
       return { x, y };
     }
-
+  
     fetchData().then(processedData => {
       if (processedData) {
         makePlotly(processedData);
       }
     });
   }, [selected]);
-
+  
   function makePlotly({ x, y }) {
     var traces = [{ x, y }];
-    setPlotData(traces);
+  
+    var layout = {
+      xaxis: {
+        title: {
+          text: charts[selected].xLabel || charts[selected].x,
+        },
+      },
+      yaxis: {
+        title: {
+          text: charts[selected].yLabel || charts[selected].y,
+        },
+      },
+    };
+  
+    setPlotData({ data: traces, layout });
   }
 
-  // function addImage(graph_png) {
-  //   <img src={graph_png} className="w-3/5"></img>
-  //   return {};
-  // }
+  const printImage = () => {
+    const imageUrl = charts[selected].graph_png;
+    return (
+      <div>
+        <img src={imageUrl} alt="" />
+      </div>
+    );
+  };
 
   useEffect(() => {
     if (plotRef.current && plotData) {
@@ -120,7 +140,6 @@ function LineChart() {
           <a href="#" onClick={() => {
             setSelected("global");
             setDropdown(!dropdown);
-            addImage(selected.graph_png);
           }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Global</a>
         </li>
         <li>
@@ -139,6 +158,7 @@ function LineChart() {
           <a href="#" onClick={() => {
             setSelected("countries");
             setDropdown(!dropdown);
+            printImage();
           }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Countries</a>
         </li>
         <li>
