@@ -6,6 +6,21 @@ function Home() {
 
   return (
     <>
+      {/* Team Names and Titles */}
+      <div className="flex gap-5 p-10">
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center gap-2">
+            <div>
+            <h3 className="font-bold">Data Engineer: Matthew Byrne</h3>
+            <h3 className="font-bold">Weather Analyst: Navjeet Ghuman</h3>
+            <h3 className="font-bold">Web Coordinator: Elise Sirivisal</h3>
+            <h3 className="font-bold">Environmental Impact Specialist: Kevin Tian</h3>
+            <h3 className="font-bold">Visualization Analyst: Sophia</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="flex gap-5 p-10">
         <div className="flex flex-col gap-5">
           <h2 className="font-bold w-1/2">Overview</h2>
@@ -20,12 +35,19 @@ function Home() {
             With this project we’re hoping to shed light on the impact climate change has on our planet and highlight the areas that 
             are most at risk.
           </p>
-          <h2 className="font-bold w-1/2">Discussion</h2>
+          <h2 className="font-bold w-1/2">Analysis</h2>
           <p>
+          <h2 className="font-bold w-1/1">Global Temperature Analysis</h2>
             <li>How have global temperature trends evolved throughout our date range?</li>
-            <li>How have temperature trends evolved throughout our date range in South Africa, India, Germany, United States, Brazil, Australia, and Antarctica?</li>
-            <li>Which states in South Africa, India, Germany, United States, Brazil, Australia, and Antarctica are experiencing the most rapid increase in temperature, and are there any regions experiencing a decrease?</li>
-            <li>Does a higher population result in higher temperatures? Does higher population result in more air pollution?</li>
+            <h2 className="font-bold w-1/1">Countries Analysis</h2>
+            <li>How have temperature trends evolved throughout our date range in South Africa, India, Germany, United States, Brazil and Australia?</li>
+            <h2 className="font-bold w-1/1">States Analysis</h2>
+            <li>Which states in South Africa, India, Germany, United States, Brazil and Australia are experiencing the most rapid increase in temperature, and are there any regions experiencing a decrease?</li>
+            <h2 className="font-bold w-1/1">Population & Temperature Analysis</h2>
+            <li>Does a higher population result in higher temperatures?</li>
+            <h2 className="font-bold w-1/1">Population & Pollution Analysis</h2>
+            <li>Does a higher population result in more air pollution?</li>
+            <h2 className="font-bold w-1/1">Air Pollution Analysis</h2>
             <li>Do areas with more air pollution have higher temperatures?</li>
           </p>
         </div>
