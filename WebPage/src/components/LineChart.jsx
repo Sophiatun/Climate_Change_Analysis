@@ -10,38 +10,6 @@ function LineChart() {
   const plotRef = useRef(null);
 
   const charts = {
-    
-    airPollution : {
-      name: "Air Pollution",
-      location: "src/data/Cleaned Data/South_Africa_Air_Pollution.csv",
-      label:"South Africa Air Pollutants (Nitrogen Oxide)",
-      x: "Year",
-      y: "Nitrogen Oxide",
-      type: "line",
-      description: "Test one",
-    },
-
-    cities : {
-      name: "Cities",
-      location: "src/data/Cities.csv",
-      label: "",
-      x: "Year",
-      y: ['Yearly Average Temperature'],
-      type: "line",
-      description: "test two",
-    },
-
-    countries: {
-      name: "Country-Specific Trends",
-      location: "src/data/Countries.csv",
-      label: "",
-      x: "Year",
-      y: [],
-      type: "",
-      description: "Are any particular continents experiencing more rapid temperature increases than others? How have temperature trends evolved throughout our date range in South Africa, India, Germany, United States, Brazil, and Australia?",
-      graph_png: "public/temp_trends_by_country.png"
-    },
-
     global: {
       name: "Global",
       location: "src/data/Global.csv",
@@ -54,8 +22,34 @@ function LineChart() {
       description: "How have global temperature trends evolved from 1850 to 2015?"
       },
 
+      country_specific_trends: {
+        name: "Country-Specific Trends",
+        location: "src/data/Cleaned Data/country_specific_trends.csv",
+        label: "United States Yearly Average Temperature",
+        x: "Year",
+        y: "US Yearly Avg Temp",
+        xLabel: "Year",
+        yLabel: "Yearly Average Temperature (°C)",
+        type: "line",
+        description: "Are any particular continents experiencing more rapid temperature increases than others? How have temperature trends evolved throughout our date range in South Africa, India, Germany, United States, Brazil, and Australia?",
+        graph_png: "public/country_specific_trends.png"
+      },
+  
+      hotspots_and_cooling: {
+        name: "Hotspots and Cooling",
+        location: "src/data/Cleaned Data/hotspots_and_cooling.csv",
+        label: "Percent Change in Canada's Yearly Average Temperature",
+        x: "Years",
+        y: "% Change in Yearly Avg Temp for Canada",
+        xLabel: "Year",
+        yLabel: "Change in Temperature (%)",
+        type: "line",
+        description: "Which countries/regions are experiencing the most rapid increase in temperature, and are there any regions experiencing a decrease?",
+        graph_png: "public/hotspots_and_cooling.png"
+      },
+
     population_v_temp: {
-      name: "Population v Temperature",
+      name: "Population & Temperature",
       location: "src/data/Merged_Population.csv",
       label: "Correlation between Population and Temperature (1973-2013)",
       x: "Population",
@@ -63,7 +57,27 @@ function LineChart() {
       size: "Population",
       color: "Country",
       type: "scatter",
-      description: "Bubble chart description",
+      description: "",
+    },
+
+    population_airPollution : {
+      name: "Population & Air Pollution",
+      location: "src/data/Cleaned Data/South_Africa_Air_Pollution.csv",
+      label:"Correlation between Population and Air Pollutants (Nitrogen Oxide) in South Africa",
+      x: "Year",
+      y: "Nitrogen Oxide",
+      type: "scatter",
+      description: "",
+    },
+
+    airPollution : {
+      name: "Air Pollution",
+      location: "src/data/Clean Data/Cities.csv",
+      label: "",
+      x: "Year",
+      y: "Yearly Average Temperature",
+      type: "line",
+      description: "",
     }
   }
 
@@ -151,29 +165,36 @@ function LineChart() {
           }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Global</a>
         </li>
         <li>
-        <a href="#" onClick={() => {
-            setSelected("airPollution");
-            setDropdown(!dropdown);
-          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Air Pollution</a>
-        </li>
-        <li>
           <a href="#" onClick={() => {
-            setSelected("cities");
-            setDropdown(!dropdown);
-            }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cities</a>
-        </li>
-        <li>
-          <a href="#" onClick={() => {
-            setSelected("countries");
-            setDropdown(!dropdown);
             printImage();
-          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Countries</a>
+            setSelected("country_specific_trends");
+            setDropdown(!dropdown);
+          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Country-Specific Trends</a>
+        </li>
+        <li>
+          <a href="#" onClick={() => {
+            printImage();
+            setSelected("hotspots_and_cooling");
+            setDropdown(!dropdown);
+          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hotspots and Cooling</a>
         </li>
         <li>
           <a href="#" onClick={() => {
             setSelected("population_v_temp");
             setDropdown(!dropdown);
           }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Population vs Temperature</a>
+        </li>
+        <li>
+        <a href="#" onClick={() => {
+            setSelected("population_airPollution");
+            setDropdown(!dropdown);
+          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Population & Air Pollution</a>
+        </li>
+        <li>
+          <a href="#" onClick={() => {
+            setSelected("airPollution");
+            setDropdown(!dropdown);
+            }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Air Pollution</a>
         </li>
       </ul>
   </div>}
