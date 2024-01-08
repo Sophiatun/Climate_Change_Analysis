@@ -28,7 +28,7 @@ function App() {
         </div>
         <div>{view == "home" && <Home></Home>}</div>
         <div>{view == "linegraphs" && <LineChart></LineChart>}</div>
-        {button }
+        {/* {button } */}
       </div>
     </>
   );
