@@ -19,7 +19,7 @@ function LineChart() {
       xLabel: "Year",
       yLabel: "Temperature (°C)",
       type: "line",
-      description: "How have global temperature trends evolved from 1850 to 2015?",
+      description: "On average, global temperatures have shown a great increase over time, as displayed in the graph below (ranging from 1850 to 1950)? Water has a higher specific heat capacity than land (ie. requires more energy for its temperature to change). Oceans contribute to higher humidity levels in the atmosphere. Humidity traps heat, which them contributed to higher overall temperature of the Earth's atmosphere. Land has lower thermal intertia, meaning it warm up quickly and cools down quickly.Ocean has higher thermal inertia, meaning it takes time to warm up and cool down. Even though the sun is not out, it will still release stored heat, which then helps moderate temperature changes in the atmosphere.",
       graph_png: ["public/Global Land & Ocean Avg Temp.png","public/Global Land Temperature.png"],
       },
 
@@ -71,7 +71,7 @@ function LineChart() {
       x: "Year",
       y: "Nitrogen Oxide",
       type: "scatter",
-      description: "",
+      description: "South Africa, Brazil, and India all have a positive correlation between rising population and the amount of pollutants in the air. Both Germany and Australia don’t appear to have as strong of a correlation between population and pollutants as the other countries as you can see here with Australia’s chart, although they did have a sharp decrease in all three pollutants in their environment when their population rose over 17 million.",
       graph_png: ["USA Population vs Pollutant.png", "India Population vs Pollutant.png", "Austrlia Population vs Pollutants.png"],
       hide:true,
     },
