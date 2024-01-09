@@ -36,8 +36,8 @@ function LineChart() {
       graph_png: ["public/Temperature Trends in Selected Countries.png"]
     },
 
-    States_Analysis: {
-      name: "States Analysis",
+    Yearly_temp_analysis: {
+      name: "Yearly Temperature Analysis",
       location: "src/data/Cleaned Data/hotspots_and_cooling.csv",
       label: "Percent Change in Canada's Yearly Average Temperature",
       x: "Years",
@@ -45,7 +45,7 @@ function LineChart() {
       xLabel: "Year",
       yLabel: "Change in Temperature (%)",
       type: "line",
-      description: "Which countries/regions are experiencing the most rapid increase in temperature, and are there any regions experiencing a decrease?",
+      description: "You can see one large spike in the center of the chart when Canada experienced about a 100% rise in average temperature in the early 1980s due to a tropical cyclone. There are also two large spikes in Canada again around the 2010s.During this time Canada was experiencing volatile weather patterns as the yearly average temperature was experiencing large swings in both the positive and negative directions. Among our other takeaways from this analysis is Russia also has experienced some volatile weather patterns, while countries like China and Australia have had somewhat consistent weather patterns.",
       graph_png: ["Percent Change in Yearly Avg Temp.png"],
       hide:true,
     },
@@ -59,7 +59,7 @@ function LineChart() {
       size: "Population",
       color: "Country",
       type: "scatter",
-      description: "",
+      description: "For our next analysis we took a look at the correlation between population and temperature from 1973 and 2013. We found a slightly positive correlation between the population and temperatures, meaning that in these selected countries we can infer that temperatures are rising as the populations are increasing.",
       graph_png: ["public/Population vs Temperature Correlation.png"],
       hide:true,
     },
@@ -72,7 +72,7 @@ function LineChart() {
       y: "Nitrogen Oxide",
       type: "scatter",
       description: "South Africa, Brazil, and India all have a positive correlation between rising population and the amount of pollutants in the air. Both Germany and Australia don’t appear to have as strong of a correlation between population and pollutants as the other countries as you can see here with Australia’s chart, although they did have a sharp decrease in all three pollutants in their environment when their population rose over 17 million.",
-      graph_png: ["USA Population vs Pollutant.png", "India Population vs Pollutant.png", "Austrlia Population vs Pollutants.png"],
+      graph_png: ["USA Population vs Pollutant.png", "India Population vs Pollutant.png", "Australia Population vs Pollutants.png"],
       hide:true,
     },
 
@@ -83,8 +83,8 @@ function LineChart() {
       x: "Year",
       y: "Yearly Average Temperature",
       type: "line",
-      description: "",
-      graph_png: ["public/Australia Air Pollutants.png", "public/Brazil Air Pollutants", "public/India Air Pollutants", "public/South America Air Pollutantspng.png","United States Air Pollutants.png"],
+      description: "Nitrogen Oxide, Suplhur Dioxide, and Carbon Monoxide are chemicals that increase as air pollution increases.As you can see in the graphs, these three chemicals increase as temperature increases in most cases.There are several edge cases notable from countries that have put in more effort in climate control. In general, these are the exception and an increase in air pollution levels can be correlated to an increase in yearly average temperature. ",
+      graph_png: ["public/Australia Air Pollutants.png", "Brazil Air Pollutants.png", "India Air Pollutants.png", "public/South America Air Pollutantspng.png","United States Air Pollutants.png", "Germany Air Pollutants.png"],
       hide:true,
     }
   }
@@ -184,9 +184,9 @@ function LineChart() {
         </li>
         <li>
           <a href="#" onClick={() => {
-            setSelected("States_Analysis");
+            setSelected("Yearly_temp_analysis");
             setDropdown(!dropdown);
-          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">States Analysis</a>
+          }} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yearly Temperature Analysis</a>
         </li>
         <li>
           <a href="#" onClick={() => {

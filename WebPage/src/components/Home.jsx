@@ -39,7 +39,7 @@ function Home() {
             <li>How have global temperature trends evolved throughout our date range?</li>
             <h2 className="font-bold w-1/1">Countries Analysis</h2>
             <li>How have temperature trends evolved throughout our date range in South Africa, India, Germany, United States, Brazil and Australia?</li>
-            <h2 className="font-bold w-1/1">States Analysis</h2>
+            <h2 className="font-bold w-1/1">Yearly Temperature Analysis</h2>
             <li>Which states in South Africa, India, Germany, United States, Brazil and Australia are experiencing the most rapid increase in temperature, and are there any regions experiencing a decrease?</li>
             <h2 className="font-bold w-1/1">Population & Temperature Analysis</h2>
             <li>Does a higher population result in higher temperatures?</li>
