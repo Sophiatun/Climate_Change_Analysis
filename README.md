@@ -14,13 +14,13 @@ Does higher population result in more air pollution?
 Do areas with more air pollution have higher temperatures? 
 
 **Instructions on how to use and interact with the project:**
-Our webpage can be found at: [TBD]
+Our webpage can be found at: [To be Updated]
 
 We have two components to our website: Overview and Visualizations
 In Overview you can find some background info and the purpose of our project.
 In Visualizations you will see a dropdown that leads to our data visualizations that answer the questions outlined in our Overview. Click on one to be taken to the charts that address that specific topic. Under each chart we have added text with takeaways based on the analysis. 
 
-**At least one paragraph summarizing efforts for ethical considerations made in the project:**
+**Ethical considerations made in the project:**
 To ensure we avoided any issues with our data we made sure not to collect or work with any data that would invade privacy. We only shared proper info and data from reliable sources and ensured we were not working with any kind of leaked data. We made sure we included uncertainty - ethical consideration (allows the audience to understand the reliability of the information they’re getting) - but we took out the uncertainty cols. We also included one country from every continent (except Alaska) to ensure we were looking at the project from a global perspective.
 
 **References for the data source(s):**
